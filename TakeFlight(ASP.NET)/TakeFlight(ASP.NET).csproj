@@ -68,16 +68,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2p.png" />
+    <Content Include="brandy.png" />
     <Content Include="create.png" />
+    <Content Include="Drinks.html" />
     <Content Include="drinks.png" />
+    <Content Include="DrinksStyle.css" />
     <Content Include="flights.png" />
     <Content Include="FlightStyle.css" />
     <Content Include="FlightForm.aspx" />
+    <Content Include="gin.png" />
     <Content Include="Global.asax" />
     <Content Include="profile.png" />
+    <Content Include="rum.png" />
+    <Content Include="tequila.png" />
     <Content Include="UserForm.aspx" />
     <Content Include="UserStyle.css" />
+    <Content Include="vodka.png" />
     <Content Include="Web.config" />
+    <Content Include="whiskey.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FlightForm.aspx.cs">

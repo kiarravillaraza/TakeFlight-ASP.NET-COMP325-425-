@@ -31,7 +31,7 @@
 </div>
 
     <div class="divider"></div>
-
+            
 
 <div class="image-and-text">
     <h2 class="h2">ARE YOU READY TO <br /> &nbsp;&nbsp;&nbsp;&nbsp; TAKE FLIGHT?</h2>
