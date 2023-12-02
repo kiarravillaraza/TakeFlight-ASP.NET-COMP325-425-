@@ -53,6 +53,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -88,6 +89,8 @@
     <Content Include="whiskey.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RequestResponse.cs" />
+    <Compile Include="SqlConnection.cs" />
     <Compile Include="FlightForm.aspx.cs">
       <DependentUpon>FlightForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

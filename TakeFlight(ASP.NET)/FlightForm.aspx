@@ -110,7 +110,7 @@
     </div>
     <div class="flex-item">
         <p>
-            <asp:Button ID="button1" runat="server" Text="Take Flight" Height="78px" Width="293px" />
+            <asp:Button ID="button1" runat="server" Text="Take Flight" onClick="button1_Click" Height="78px" Width="293px" />
         </p>
     </div>
     <div class="flex-item">
