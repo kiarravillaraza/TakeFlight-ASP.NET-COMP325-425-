@@ -26,7 +26,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "p40901";
+                builder.Password = "";
                 builder.InitialCatalog = "Cocktail Flight";
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
