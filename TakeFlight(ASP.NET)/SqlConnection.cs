@@ -12,7 +12,7 @@ namespace TakeFlight_ASP.NET_
         public SQLConnection()
         {
             conn = new SqlConnection();
-            conn.ConnectionString = "Server=sql.cs.luc.edu;uid=tmansheim;pwd=p40901;TrustServerCertificate=True;";
+            conn.ConnectionString = "Server=sql.cs.luc.edu;uid=tmansheim;pwd=;TrustServerCertificate=True;";
             conn.Open();
 
         }
