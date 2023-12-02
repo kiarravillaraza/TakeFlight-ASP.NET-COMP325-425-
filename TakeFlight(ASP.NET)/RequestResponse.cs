@@ -26,7 +26,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "";
+                builder.Password = "p40901";
                 builder.InitialCatalog = "Cocktail Flight";
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -58,11 +58,12 @@ namespace TakeFlight_ASP.NET_
                             //returns true while there are more lines to read
                             while (reader.Read())
                             {
-                                //Console.WriteLine("UID: "+reader.GetInt64(0)+" password: "+reader.GetString(1)+" email: "+reader.GetString(2));
+                               
                                 if (reader.GetInt64(0) == id)
                                 {
                                     //finds alcohol they wanted in that flight
                                     alc = reader.GetString(5);
+                                    
 
                                     //finds number of drinks they wanted
                                     num = (int)reader.GetInt64(2);
@@ -109,20 +110,60 @@ namespace TakeFlight_ASP.NET_
             }
 
             //creating array with just drink names
-            string[] drinkNames = new string[drinks.Length-1];
+            string[] drinkNamesorig = new string[drinks.Length-1];
 
             for (int i = 0; i < drinks.Length-2; i++)
             {
                 string temp = drinks[i];
                 temp = temp.Remove(0, 13);
                 string[] tempArray = temp.Split('"');
-                drinkNames[i] = tempArray[0];
+                drinkNamesorig[i] = tempArray[0];
             }
 
+            var drinkNames = drinkNamesorig.Shuffle();
+
+            string drinkNamesToEnter = "";
             //listing drink names
-            for (int i = 0; i < num; i++)
+
+            drinkNamesToEnter = drinkNamesToEnter + drinkNames[0];
+            for (int i = 1; i < num; i++)
             {
-                System.Windows.Forms.MessageBox.Show(drinkNames[i]);
+                drinkNamesToEnter = drinkNamesToEnter + ", " + drinkNames[i];
+
+            }
+
+            try
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+
+                builder.DataSource = "sql.cs.luc.edu";
+                builder.UserID = "tmansheim";
+                builder.Password = "p40901";
+                builder.InitialCatalog = "Cocktail Flight";
+                builder.TrustServerCertificate = true;
+
+                string sql = "UPDATE flights SET drinkNames = '" + drinkNamesToEnter + "' WHERE flightID = " + id + ";";
+
+                System.Windows.Forms.MessageBox.Show(sql);
+
+                using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
+                {
+
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(sql, connection);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    connection.Close();
+
+
+
+                }
+            }
+            catch (SqlException exceptionone)
+            {
+
             }
         }
 

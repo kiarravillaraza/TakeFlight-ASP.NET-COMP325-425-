@@ -89,6 +89,7 @@
     <Content Include="whiskey.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="RequestResponse.cs" />
     <Compile Include="SqlConnection.cs" />
     <Compile Include="FlightForm.aspx.cs">
