@@ -13,22 +13,29 @@
 
 <div class="flex-container">
     <div class="flex-item">
-        <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="profile.png" Height="150px" Width="230px" />
+        <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="profile.png" PostBackUrl="~/UserForm.aspx" Height="150px" Width="230px" />
         <p>PROFILE</p>
     </div>
     <div class="flex-item">
-        <asp:ImageButton ID="CreateButton" runat="server" ImageUrl="create.png" Height="150px" Width="230px" />
+        <asp:ImageButton ID="CreateButton" runat="server" ImageUrl="create.png" PostBackUrl="~/FlightForm.aspx" Height="150px" Width="230px" />
         <p>CREATE</p>
     </div>
     <div class="flex-item">
-        <asp:ImageButton ID="FlightsButton" runat="server" ImageUrl="flights.png" Height="150px" Width="230px" />
+        <asp:ImageButton ID="FlightsButton" runat="server" ImageUrl="flights.png" NavigateUrl="Flights.html" Height="150px" Width="230px" />
         <p>FLIGHTS</p>
     </div>
     <div class="flex-item">
-        <asp:ImageButton ID="DrinksButton" runat="server" ImageUrl="drinks.png" Height="150px" Width="230px" />
-        <p>DRINKS</p>
-    </div>
+        <a href="https://localhost:44324/Drinks.html" style="text-decoration: none;">
+            <asp:ImageButton ID="DrinksButton" runat="server" ImageUrl="drinks.png" Height="150px" Width="230px" />
+            <p>DRINKS</p>
+        </a>
+      </div>
+
+
+
 </div>
+         
+ 
 
     <div class="divider"></div>
             
@@ -38,6 +45,25 @@
 </div>
     <h4 class ="h4">Please fill in all of the fields below.</h4>
     <table class="auto-style10">
+        
+        <!-- Username -->
+        <tr>
+            <td class="auto-style4">
+                <br />
+                Create a username
+                <br />
+                <br />
+            </td>
+            <td class="auto-style2">
+                <asp:TextBox ID="Username" Text="" runat="server" Width="463px" CssClass="auto-style8"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="UsernameValidator" runat="server"
+                    ControlToValidate="Username"
+                    Display="Dynamic"
+                    ErrorMessage="Username is required"
+                    ForeColor="Red">*</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        
         
         <!-- Flight name -->
         <tr>

@@ -34,20 +34,22 @@
 
 <div class="flex-container">
     <div class="flex-item">
-        <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="profile.png" Height="150px" Width="230px" />
+        <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="profile.png" PostBackUrl="~/UserForm.aspx" Height="150px" Width="230px" />
         <p>PROFILE</p>
     </div>
     <div class="flex-item">
-        <asp:ImageButton ID="CreateButton" runat="server" ImageUrl="create.png" Height="150px" Width="230px" />
+        <asp:ImageButton ID="CreateButton" runat="server" ImageUrl="create.png" PostBackUrl="~/FlightForm.aspx" Height="150px" Width="230px" />
         <p>CREATE</p>
     </div>
     <div class="flex-item">
-        <asp:ImageButton ID="FlightsButton" runat="server" ImageUrl="flights.png" Height="150px" Width="230px" />
+        <asp:ImageButton ID="FlightsButton" runat="server" ImageUrl="flights.png" NavigateUrl="Flights.html" Height="150px" Width="230px" />
         <p>FLIGHTS</p>
     </div>
     <div class="flex-item">
-        <asp:ImageButton ID="DrinksButton" runat="server" ImageUrl="drinks.png" Height="150px" Width="230px" />
-        <p>DRINKS</p>
+        <a href="https://localhost:44324/Drinks.html" style="text-decoration: none;">
+            <asp:ImageButton ID="DrinksButton" runat="server" ImageUrl="drinks.png" Height="150px" Width="230px" />
+            <p>DRINKS</p>
+        </a>
     </div>
 </div>
 
