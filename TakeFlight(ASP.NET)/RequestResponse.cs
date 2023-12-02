@@ -26,7 +26,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "password";
+                builder.Password = "p40901";
                 builder.InitialCatalog = "Cocktail Flight";
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -97,7 +97,7 @@ namespace TakeFlight_ASP.NET_
             str = str.Remove(0, 11);
             string[] drinks = str.Split('}');
 
-
+            //getting rid of errant char
             for (int i = 0; i < drinks.Length; i++)
             {
                 drinks[i] = drinks[i] + "}";
@@ -108,12 +108,27 @@ namespace TakeFlight_ASP.NET_
                 drinks[i] = drinks[i].Remove(0, 1);
             }
 
+            //creating array with just drink names
+            string[] drinkNames = new string[drinks.Length-1];
+
+            for (int i = 0; i < drinks.Length-2; i++)
+            {
+                string temp = drinks[i];
+                temp = temp.Remove(0, 13);
+                string[] tempArray = temp.Split('"');
+                drinkNames[i] = tempArray[0];
+            }
+
+            //listing drink names
             for (int i = 0; i < num; i++)
             {
-                System.Windows.Forms.MessageBox.Show(drinks[i]);
+                System.Windows.Forms.MessageBox.Show(drinkNames[i]);
             }
         }
 
-
+        /* TODO:
+         * Make listing drink names random
+         * Make it possible to pick more than one type of alcohol
+         */
     }
 }

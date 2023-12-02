@@ -86,7 +86,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "password";
+                builder.Password = "p40901";
                 builder.InitialCatalog = "Cocktail Flight";
 
                 using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
@@ -123,7 +123,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "password";
+                builder.Password = "p40901";
                 builder.InitialCatalog = "Cocktail Flight";
                 builder.TrustServerCertificate = true;
 
