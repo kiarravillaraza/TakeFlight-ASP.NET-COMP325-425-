@@ -50,16 +50,16 @@
         <tr>
             <td class="auto-style4">
                 <br />
-                Create a username
+                Enter your User ID
                 <br />
                 <br />
             </td>
             <td class="auto-style2">
-                <asp:TextBox ID="Username" Text="" runat="server" Width="463px" CssClass="auto-style8"></asp:TextBox>
+                <asp:TextBox ID="UserID" Text="" runat="server" Width="463px" CssClass="auto-style8"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="UsernameValidator" runat="server"
-                    ControlToValidate="Username"
+                    ControlToValidate="UserID"
                     Display="Dynamic"
-                    ErrorMessage="Username is required"
+                    ErrorMessage="User ID is required"
                     ForeColor="Red">*</asp:RequiredFieldValidator>
             </td>
         </tr>

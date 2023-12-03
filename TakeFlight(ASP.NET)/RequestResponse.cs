@@ -84,19 +84,29 @@ namespace TakeFlight_ASP.NET_
 
             }
 
-            string sURL;
-            sURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + alc;
+            string[] alcohol = alc.Split('\'');
+            string fulllist = "";
 
-            WebRequest geturl;
-            geturl = WebRequest.Create(sURL);
-            Stream objStream;
-            objStream = geturl.GetResponse().GetResponseStream();
+            for (int i = 0; i < alcohol.Length; i++)
+            {
+                alc = alcohol[i];
 
-            //reading and parsing
-            StreamReader objReader = new StreamReader(objStream);
-            string str = objReader.ReadToEnd();
-            str = str.Remove(0, 11);
-            string[] drinks = str.Split('}');
+                string sURL;
+                sURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + alc;
+
+                WebRequest geturl;
+                geturl = WebRequest.Create(sURL);
+                Stream objStream;
+                objStream = geturl.GetResponse().GetResponseStream();
+
+                //reading and parsing
+                StreamReader objReader = new StreamReader(objStream);
+                string str = objReader.ReadToEnd();
+                str = str.Remove(0, 11);
+                fulllist = fulllist + str;
+
+            }
+            string[] drinks = fulllist.Split('}');
 
             //getting rid of errant char
             for (int i = 0; i < drinks.Length; i++)
@@ -154,6 +164,7 @@ namespace TakeFlight_ASP.NET_
                     SqlCommand command = new SqlCommand(sql, connection);
 
                     SqlDataReader reader = command.ExecuteReader();
+                    
 
                     connection.Close();
 

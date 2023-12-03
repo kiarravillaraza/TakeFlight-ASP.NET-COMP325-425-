@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace TakeFlight_ASP.NET_
@@ -22,6 +23,7 @@ namespace TakeFlight_ASP.NET_
         //grabs data from form
         protected void button1_Click(object sender, EventArgs e)
         {
+            string uid = UserID.Text;
             string Flight = FlightName.Text;
             int Drinks = ddlNumDrinks.SelectedIndex + 3;
             string Strength = DrinkStrength.Text; ;
@@ -36,7 +38,7 @@ namespace TakeFlight_ASP.NET_
             {
                 if (firstItem)
                 {
-                    Alcohol = Alcohol + ", ";
+                    Alcohol = Alcohol + ",";
                 }
                 Alcohol = Alcohol + "Whiskey";
                 firstItem = true;
@@ -45,7 +47,7 @@ namespace TakeFlight_ASP.NET_
             {
                 if (firstItem)
                 {
-                    Alcohol = Alcohol + ", ";
+                    Alcohol = Alcohol + ",";
                 }
                 Alcohol = Alcohol + "Rum";
                 firstItem = true;
@@ -54,7 +56,7 @@ namespace TakeFlight_ASP.NET_
             {
                 if (firstItem)
                 {
-                    Alcohol = Alcohol + ", ";
+                    Alcohol = Alcohol + ",";
                 }
                 Alcohol = Alcohol + "Gin";
                 firstItem = true;
@@ -63,7 +65,7 @@ namespace TakeFlight_ASP.NET_
             {
                 if (firstItem)
                 {
-                    Alcohol = Alcohol + ", ";
+                    Alcohol = Alcohol + ",";
                 }
                 Alcohol = Alcohol + "Brandy";
                 firstItem = true;
@@ -72,7 +74,7 @@ namespace TakeFlight_ASP.NET_
             {
                 if (firstItem)
                 {
-                    Alcohol = Alcohol + ", ";
+                    Alcohol = Alcohol + ",";
                 }
                 Alcohol = Alcohol + "Tequila";
                 firstItem = true;
@@ -132,7 +134,7 @@ namespace TakeFlight_ASP.NET_
 
                     connection.Open();
 
-                    String sql = "insert into flights(flightid, name, num, strength, userID, alcohol)\r\nvalues\r\n(" + id + ", '" + Flight + "', " + Drinks + ", '" + Strength + "', " + 00001 + ", '" + Alcohol + "')";
+                    String sql = "insert into flights(flightid, name, num, strength, userID, alcohol)\r\nvalues\r\n(" + id + ", '" + Flight + "', " + Drinks + ", '" + Strength + "', " + uid + ", '" + Alcohol + "')";
 
 
                     SqlCommand command = new SqlCommand(sql, connection);
