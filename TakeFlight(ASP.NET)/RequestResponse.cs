@@ -176,8 +176,8 @@ namespace TakeFlight_ASP.NET_
         }
 
         /* TODO:
-         * Make listing drink names random
-         * Make it possible to pick more than one type of alcohol
+         * add user entry methods
+         * rating drink method?
          */
     }
 }
