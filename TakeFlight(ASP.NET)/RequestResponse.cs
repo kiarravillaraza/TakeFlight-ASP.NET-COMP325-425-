@@ -15,6 +15,7 @@ namespace TakeFlight_ASP.NET_
     {
         public static void Response()
         {
+            string pass = "";
             int id = 0;
             string alc = "";
             int num = 3;
@@ -26,7 +27,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "";
+                builder.Password =pass;
                 builder.InitialCatalog = "Cocktail Flight";
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -74,9 +75,6 @@ namespace TakeFlight_ASP.NET_
                         }
                     }
 
-
-                    connection.Close();
-
                 }
             }
             catch (SqlException expectiontwo)
@@ -84,13 +82,13 @@ namespace TakeFlight_ASP.NET_
 
             }
 
-            string[] alcohol = alc.Split('\'');
+            string[] alcohol = alc.Split(',');
             string fulllist = "";
+
 
             for (int i = 0; i < alcohol.Length; i++)
             {
                 alc = alcohol[i];
-
                 string sURL;
                 sURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + alc;
 
@@ -101,8 +99,8 @@ namespace TakeFlight_ASP.NET_
 
                 //reading and parsing
                 StreamReader objReader = new StreamReader(objStream);
-                string str = objReader.ReadToEnd();
-                str = str.Remove(0, 11);
+                string str1 = objReader.ReadToEnd();
+                string str = str1.Remove(str1.Length - 2, 2);
                 fulllist = fulllist + str;
 
             }
@@ -139,7 +137,6 @@ namespace TakeFlight_ASP.NET_
             for (int i = 1; i < num; i++)
             {
                 drinkNamesToEnter = drinkNamesToEnter + ", " + drinkNames[i];
-
             }
 
             try
@@ -148,7 +145,7 @@ namespace TakeFlight_ASP.NET_
 
                 builder.DataSource = "sql.cs.luc.edu";
                 builder.UserID = "tmansheim";
-                builder.Password = "";
+                builder.Password =pass;
                 builder.InitialCatalog = "Cocktail Flight";
                 builder.TrustServerCertificate = true;
 

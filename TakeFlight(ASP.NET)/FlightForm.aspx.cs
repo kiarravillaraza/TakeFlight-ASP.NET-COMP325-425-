@@ -112,22 +112,8 @@ namespace TakeFlight_ASP.NET_
                     }
 
                 }
-            }
-            catch (SqlException expectiontwo)
-            {
-                Console.WriteLine(e.ToString());
-            }
 
             //connection to assign data to found flightID
-            try
-            {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-                builder.DataSource = "sql.cs.luc.edu";
-                builder.UserID = "tmansheim";
-                builder.Password = "";
-                builder.InitialCatalog = "Cocktail Flight";
-                builder.TrustServerCertificate = true;
 
                 using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
                 {
