@@ -15,7 +15,7 @@ namespace TakeFlight_ASP.NET_
     {
         public static void Response()
         {
-            string pass = "";
+            string pass = "p40901";
             int id = 0;
             string alc = "";
             int num = 3;
@@ -101,6 +101,7 @@ namespace TakeFlight_ASP.NET_
                 StreamReader objReader = new StreamReader(objStream);
                 string str1 = objReader.ReadToEnd();
                 string str = str1.Remove(str1.Length - 2, 2);
+                str = str.Remove(0, 11);
                 fulllist = fulllist + str;
 
             }
@@ -125,6 +126,13 @@ namespace TakeFlight_ASP.NET_
                 string temp = drinks[i];
                 temp = temp.Remove(0, 13);
                 string[] tempArray = temp.Split('"');
+
+                int ind = tempArray[0].IndexOf('\'');
+                if (ind != -1)
+                {
+                    tempArray[0] = tempArray[0].Insert(ind, "\'");
+                }
+
                 drinkNamesorig[i] = tempArray[0];
             }
 
