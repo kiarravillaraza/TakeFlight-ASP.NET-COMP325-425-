@@ -60,11 +60,11 @@
     <h4 class ="h4">Please fill in all of the fields below.</h4>
     <table class="auto-style9">
         
-        <!-- Full name -->
+        <!-- Email -->
         <tr>
             <td class="auto-style4">
                 <br />
-                Enter your full name
+                Enter your email
                 <br />
                 <br />
             </td>
@@ -139,7 +139,7 @@
     </div>
     <div class="flex-item">
         <p>
-            <asp:Button ID="CreateAccount" runat="server" Text="Create Account" Height="78px" Width="293px" OnClientClick="return ValidateForm();" />
+            <asp:Button ID="CreateAccount" runat="server" Text="Create Account" onClick="button1_Click" Height="78px" Width="293px" OnClientClick="return ValidateForm();" />
         </p>
     </div>
     <div class="flex-item">
