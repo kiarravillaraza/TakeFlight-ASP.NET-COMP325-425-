@@ -93,10 +93,10 @@ nav {
         font-family: 'Raleway', sans-serif; /* Apply Raleway font */
     }
 
-        nav a img {
-            width: 20px;
-            margin-bottom: 5px;
-        }
+   nav a img {
+      width: 200px;
+      margin-bottom: 5px;
+   }
 
         nav a:hover {
             background-color: #555;
