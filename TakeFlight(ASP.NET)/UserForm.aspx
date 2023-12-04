@@ -7,51 +7,17 @@
     <title>Take Flight - Create Account</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"/>
     <link rel="stylesheet" type="text/css" href="UserStyle.css"/>
-<script>
-    function ValidateForm() {
-        // Your client-side validation logic here
-        var fullName = document.getElementById('<%= FullName.ClientID %>').value;
-        var username = document.getElementById('<%= Username.ClientID %>').value;
-        var password = document.getElementById('<%= Password.ClientID %>').value;
-        var birthday = document.getElementById('<%= Birthday.ClientID %>').value;
 
-
-        // Checks if any of the fields are empty
-        if (fullName === '' || username === '' || password === '') {
-            alert('All fields must be filled out.');
-            return false;
-        }
-
-        // If passes, proceed with server-side logic
-        return true;
-    }
-</script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body class="back">
-
         <form id="form2" runat="server" class="form">
-
-<div class="flex-container">
-    <div class="flex-item">
-        <asp:ImageButton ID="ProfileButton" runat="server" ImageUrl="profile.png" PostBackUrl="~/UserForm.aspx" Height="150px" Width="230px" />
-        <p>PROFILE</p>
-    </div>
-    <div class="flex-item">
-        <asp:ImageButton ID="CreateButton" runat="server" ImageUrl="create.png" PostBackUrl="~/FlightForm.aspx" Height="150px" Width="230px" />
-        <p>CREATE</p>
-    </div>
-    <div class="flex-item">
-        <asp:ImageButton ID="FlightsButton" runat="server" ImageUrl="flights.png" NavigateUrl="Flights.html" Height="150px" Width="230px" />
-        <p>FLIGHTS</p>
-    </div>
-    <div class="flex-item">
-        <a href="https://localhost:44324/Drinks.html" style="text-decoration: none;">
-            <asp:ImageButton ID="DrinksButton" runat="server" ImageUrl="drinks.png" Height="150px" Width="230px" />
-            <p>DRINKS</p>
-        </a>
-    </div>
-</div>
+            
+            <nav>
+            <a href="https://localhost:44324/UserForm.aspx#"><img src="profile.png" alt="Profile"/> PROFILE</a>
+            <a href="#"><img src="flights.png" alt="Flights"/> FLIGHTS</a>
+            <a href="https://localhost:44324/FlightForm.aspx#"><img src="create.png" alt="Create"/> CREATE</a>
+            <a href="https://localhost:44324/Drinks.html#"><img src="drinks.png" alt="Drinks"/> DRINKS</a>
+          </nav>
 
     <div class="divider"></div>
 <div class="image-and-text">
