@@ -20,13 +20,13 @@ namespace TakeFlight_ASP.NET_
 
         }
 
-        protected void button1_Click(object sender, EventArgs e)
+        protected void button2_Click(object sender, EventArgs e)
         {
             string email = FullName.Text;
             string username = Username.Text;
             string pass = Password.Text;
             string dob = Birthday.Text;
-          
+            
             //id to count and then assign free userid
             int id = 01;
             try
@@ -43,7 +43,8 @@ namespace TakeFlight_ASP.NET_
 
                     connection.Open();
 
-                    String sql = "SELECT * FROM user";
+                    String sql = "SELECT * FROM \"user\"";
+                    
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -59,7 +60,7 @@ namespace TakeFlight_ASP.NET_
                     }
 
                 }
-                MessageBox.Show("Your UserID is:" + id);
+                MessageBox.Show("Your UserID is: " + id);
 
                 //connection to assign data to found userid
 
@@ -68,7 +69,7 @@ namespace TakeFlight_ASP.NET_
 
                     connection.Open();
 
-                    String sql = "insert into \"user\"(userID, name, pass, email, DOB)\r\nvalues\r\n(" + id + ", '" + username + "', '" + pass + "', '" + email + "', " + dob + ")";
+                    String sql = "insert into \"user\"(userID, name, pass, email, DOB)\r\nvalues\r\n(" + id + ", '" + username + "', '" + pass + "', '" + email + "', '" + dob + "')";
                     MessageBox.Show(sql);
 
                     SqlCommand command = new SqlCommand(sql, connection);

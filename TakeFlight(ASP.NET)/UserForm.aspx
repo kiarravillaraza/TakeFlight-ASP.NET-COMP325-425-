@@ -105,7 +105,7 @@
     </div>
     <div class="flex-item">
         <p>
-            <asp:Button ID="CreateAccount" runat="server" Text="Create Account" onClick="button1_Click" Height="78px" Width="293px" OnClientClick="return ValidateForm();" />
+            <asp:Button ID="CreateAccount" runat="server" Text="Create Account" onClick="button2_Click" Height="78px" Width="293px" OnClientClick="return ValidateForm();" />
         </p>
     </div>
     <div class="flex-item">
