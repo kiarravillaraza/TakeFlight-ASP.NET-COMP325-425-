@@ -84,7 +84,7 @@
                 <br />
                 Enter your birthday 
                 <br />
-                (MM-DD-YYY)
+                (YYYY-MM-DD)
                 <br />
                 <br />
             </td>

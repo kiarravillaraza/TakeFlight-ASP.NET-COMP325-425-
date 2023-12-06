@@ -34,7 +34,7 @@
         <tr>
             <td class="auto-style4">
                 <br />
-                Enter your User ID
+                Enter your Username
                 <br />
                 <br />
             </td>

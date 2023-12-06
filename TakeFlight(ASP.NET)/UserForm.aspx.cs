@@ -60,7 +60,7 @@ namespace TakeFlight_ASP.NET_
                     }
 
                 }
-                MessageBox.Show("Your UserID is: " + id);
+                
 
                 //connection to assign data to found userid
 

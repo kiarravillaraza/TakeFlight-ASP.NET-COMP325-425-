@@ -113,7 +113,7 @@ namespace TakeFlight_ASP.NET_
 
                 }
 
-            //connection to assign data to found flightID
+                //connection to assign data to found flightID
 
                 using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
                 {
