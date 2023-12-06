@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -82,8 +83,7 @@ namespace TakeFlight_ASP.NET_
 
             //id to count and then assign free flightID
             int id = 01;
-            try
-            {
+            int userid = 01;
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
                 builder.DataSource = "sql.cs.luc.edu";
@@ -113,6 +113,33 @@ namespace TakeFlight_ASP.NET_
 
                 }
 
+                using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
+                {
+
+                    connection.Open();
+
+                    String sql = "SELECT * FROM \"user\";";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            //returns true while there are more lines to read
+                            while (reader.Read())
+                            {
+                                string normalized1 = Regex.Replace(reader.GetString(1), @"\s", "");
+                            if (normalized1.Equals(uid))
+                                {
+                                    userid = (int) reader.GetInt64(0);
+                                    MessageBox.Show(userid.ToString());
+                                } 
+                            }
+                            connection.Close();
+                        }
+                    }
+
+                }
+
                 //connection to assign data to found flightID
 
                 using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
@@ -120,7 +147,7 @@ namespace TakeFlight_ASP.NET_
 
                     connection.Open();
 
-                    String sql = "insert into flights(flightid, name, num, strength, userID, alcohol)\r\nvalues\r\n(" + id + ", '" + Flight + "', " + Drinks + ", '" + Strength + "', " + uid + ", '" + Alcohol + "')";
+                    String sql = "insert into flights(flightid, name, num, strength, userID, alcohol)\r\nvalues\r\n(" + id + ", '" + Flight + "', " + Drinks + ", '" + Strength + "', " + userid + ", '" + Alcohol + "')";
 
 
                     SqlCommand command = new SqlCommand(sql, connection);
@@ -129,14 +156,7 @@ namespace TakeFlight_ASP.NET_
 
                     connection.Close();
 
-
-
                 }
-            }
-            catch (SqlException exceptionone)
-            {
-
-            }
 
             //calls Response method
             RequestResponse.Response();
