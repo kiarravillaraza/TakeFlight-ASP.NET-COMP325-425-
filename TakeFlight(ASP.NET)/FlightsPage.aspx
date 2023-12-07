@@ -30,6 +30,17 @@
             <div class="divider"></div>
             <br />
 
+            <h2 class="h3">Enter Username to View Historical Flights</h2>
+
+                        <td class="auto-style2">
+                <asp:TextBox ID="Username" Text="" runat="server" Width="705px" CssClass="auto-style8"></asp:TextBox>
+            </td>
+                <div class="flex-item">
+        <p>
+            <asp:Button ID="CreateAccount" runat="server" Text="View History" onClick="button3_Click" Height="78px" Width="293px" OnClientClick="return ValidateForm();" />
+        </p>
+    </div>
+
         </div>
     </form>
 </body>
