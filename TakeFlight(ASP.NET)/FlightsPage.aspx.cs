@@ -1,7 +1,19 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Net;
+using System.Net.Mail;
+using System.Security.Policy;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows.Forms.VisualStyles;
 
 namespace TakeFlight_ASP.NET_
 {
@@ -55,6 +67,42 @@ namespace TakeFlight_ASP.NET_
                                 foreach (string drink in drinkNames)
                                 {
                                     htmlMarkup.Append("<p>" + drink.Trim() + "</p>");
+
+                                    string recipe = "";
+                                    string ingredient = "";
+                                    string dURL;
+                                    dURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drink.Trim();
+                                    WebRequest geturldrink = WebRequest.Create(dURL);
+                                    Stream objStream = geturldrink.GetResponse().GetResponseStream();
+                                    StreamReader objReader = new StreamReader(objStream);
+                                    string str1 = objReader.ReadToEnd();
+
+                                    //find ingredients
+
+                                    for (int i = 0; i < 15; i++)
+                                    {
+                                        string toFind2 = "\"strIngredient"+(i+1)+"\":\"";
+                                        int indToFind2 = str1.IndexOf(toFind2);
+                                        string str2 = str1.Remove(0, indToFind2 + 18);
+                                        string[] temp = str2.Split('"');
+                                        ingredient = temp[0];
+                                        if (!ingredient.Contains("null") && !ingredient.Contains("ink"))
+                                        {
+                                            htmlMarkup.Append("<p style=\"font-size:15px\">" + ingredient + "</p>");
+                                        }
+                                    }
+
+
+                                    //find recipe
+                                    
+                                    string toFind = "\"strInstructions\":\"";
+                                    int indToFind = str1.IndexOf(toFind);
+                                    string str3 = str1.Remove(0, indToFind+19);
+                                    string[] temp2 = str3.Split('"');
+                                    recipe = temp2[0];
+                                    recipe = recipe.Replace("\\n", "").Replace("\\r", " ");
+
+                                    htmlMarkup.Append("<p style=\"font-size:20px\">" + recipe + "</p>");
                                 }
 
                                 htmlMarkup.Append("</ul>");
