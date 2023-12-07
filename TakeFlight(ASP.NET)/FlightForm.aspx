@@ -92,10 +92,10 @@
             </td>
             <td class="auto-style2">
                 <asp:RadioButtonList ID="DrinkStrength" runat="server" CssClass="auto-style8" Width="506px">
-                    <asp:ListItem Text=" Weak" Value="weak"></asp:ListItem>
-                    <asp:ListItem Text=" Normal" Value="normal"></asp:ListItem>
-                    <asp:ListItem Text=" Strong" Value="strong"></asp:ListItem>
-                    <asp:ListItem Text=" Very Strong" Value="veryStrong"></asp:ListItem>
+                    <asp:ListItem Text=" Weak" Value="Weak "></asp:ListItem>
+                    <asp:ListItem Text=" Normal" Value="Normal "></asp:ListItem>
+                    <asp:ListItem Text=" Strong" Value="Strong "></asp:ListItem>
+                    <asp:ListItem Text=" Very Strong" Value="Very Strong "></asp:ListItem>
                 </asp:RadioButtonList>
             </td>
         </tr>

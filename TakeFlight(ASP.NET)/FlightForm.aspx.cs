@@ -160,6 +160,7 @@ namespace TakeFlight_ASP.NET_
 
             //calls Response method
             RequestResponse.Response();
+            Response.Redirect("FlightsPage.aspx");
         }
     }
 }

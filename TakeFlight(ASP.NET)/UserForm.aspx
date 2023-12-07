@@ -14,7 +14,7 @@
             
             <nav>
             <a href="https://localhost:44324/UserForm.aspx#"><img src="profile.png" alt="Profile"/> PROFILE</a>
-            <a href="#"><img src="flights.png" alt="Flights"/> FLIGHTS</a>
+            <a href="https://localhost:44324/FlightsPage.aspx#"><img src="flights.png" alt="Flights"/> FLIGHTS</a>
             <a href="https://localhost:44324/FlightForm.aspx#"><img src="create.png" alt="Create"/> CREATE</a>
             <a href="https://localhost:44324/Drinks.html#"><img src="drinks.png" alt="Drinks"/> DRINKS</a>
           </nav>

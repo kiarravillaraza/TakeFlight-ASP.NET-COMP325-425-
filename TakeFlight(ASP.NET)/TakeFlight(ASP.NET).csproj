@@ -76,6 +76,7 @@
     <Content Include="DrinksStyle.css" />
     <Content Include="flights.png" />
     <Content Include="FlightsPage.aspx" />
+    <Content Include="FlightsPageStyle.css" />
     <Content Include="FlightStyle.css" />
     <Content Include="FlightForm.aspx" />
     <Content Include="gin.png" />

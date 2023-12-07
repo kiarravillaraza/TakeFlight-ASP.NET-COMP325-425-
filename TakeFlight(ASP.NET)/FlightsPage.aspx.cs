@@ -42,13 +42,14 @@ namespace TakeFlight_ASP.NET_
                             {
                                 // Builds HTML Markup for Display 
                                 StringBuilder htmlMarkup = new StringBuilder();
-                                htmlMarkup.Append("<h2>" + reader["name"].ToString() + "</h2>");
-                                htmlMarkup.Append("<p>Amount: " + reader["num"].ToString() + "</p>");
-                                htmlMarkup.Append("<p>Strength: " + reader["strength"].ToString() + "</p>");
+                                htmlMarkup.Append("<h2>" + reader["name"].ToString().ToUpper() + "</h2>");
+                                htmlMarkup.Append("<h3><i>Strength: " + reader["strength"].ToString() + "</i>  | " + reader["num"].ToString() + " drinks" + "</h3>");
+
 
                                 // Splits drink names and displays each one on its own line
                                 string[] drinkNames = reader["drinkNames"].ToString().Split(',');
-                                htmlMarkup.Append("<p>Drinks:</p><ul>");
+                                htmlMarkup.Append("<ul>");
+
 
 
                                 foreach (string drink in drinkNames)
