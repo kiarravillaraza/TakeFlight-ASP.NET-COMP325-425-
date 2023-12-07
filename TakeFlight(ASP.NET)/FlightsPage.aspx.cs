@@ -50,9 +50,10 @@ namespace TakeFlight_ASP.NET_
                                 string[] drinkNames = reader["drinkNames"].ToString().Split(',');
                                 htmlMarkup.Append("<p>Drinks:</p><ul>");
 
+
                                 foreach (string drink in drinkNames)
                                 {
-                                    htmlMarkup.Append("<li>" + drink.Trim() + "</li>");
+                                    htmlMarkup.Append("<p>" + drink.Trim() + "</p>");
                                 }
 
                                 htmlMarkup.Append("</ul>");
