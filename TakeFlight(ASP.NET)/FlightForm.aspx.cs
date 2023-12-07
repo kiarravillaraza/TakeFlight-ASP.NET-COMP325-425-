@@ -81,6 +81,11 @@ namespace TakeFlight_ASP.NET_
                 firstItem = true;
             }
 
+            if (Alcohol.Equals("Whiskey"))
+            {
+                MessageBox.Show("Unfortunately there are only three drink options containing just Whiskey, so your Flight will be limited to three drinks!");
+            }
+
             //id to count and then assign free flightID
             int id = 01;
             int userid = 01;
@@ -131,7 +136,7 @@ namespace TakeFlight_ASP.NET_
                             if (normalized1.Equals(uid))
                                 {
                                     userid = (int) reader.GetInt64(0);
-                                    MessageBox.Show(userid.ToString());
+                                   
                                 } 
                             }
                             connection.Close();

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -133,11 +134,6 @@ namespace TakeFlight_ASP.NET_
                     tempArray[0] = tempArray[0].Insert(ind, "\'");
                 }
 
-                if (tempArray[0].Equals("Owen''s Grandmother's Revenge"))
-                {
-                    tempArray[0] = "Owen''s Grandmother''s Revenge";
-                }
-
                 drinkNamesorig[i] = tempArray[0];
             }
 
@@ -146,11 +142,21 @@ namespace TakeFlight_ASP.NET_
             string drinkNamesToEnter = "";
             //listing drink names
 
+
             drinkNamesToEnter = drinkNamesToEnter + drinkNames[0];
-            for (int i = 1; i < num; i++)
+
+            alc = Regex.Replace(alc, @"\s", "");
+            if (alc!="Whiskey")
             {
-                drinkNamesToEnter = drinkNamesToEnter + ", " + drinkNames[i];
+                for (int i = 1; i < num; i++)
+                {
+                    drinkNamesToEnter = drinkNamesToEnter + ", " + drinkNames[i];
+                }
+            } else
+            {
+                drinkNamesToEnter = "Hot Toddy, Damned if you do, Owen''s Grandmother''s Revenge";
             }
+
 
             try
             {
