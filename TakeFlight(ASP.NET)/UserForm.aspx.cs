@@ -85,6 +85,8 @@ namespace TakeFlight_ASP.NET_
             {
 
             }
+
+            Response.Redirect("FlightForm.aspx");
         }
         }
 }
