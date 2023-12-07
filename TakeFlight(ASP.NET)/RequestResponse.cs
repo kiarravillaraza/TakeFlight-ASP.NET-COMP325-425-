@@ -121,7 +121,7 @@ namespace TakeFlight_ASP.NET_
             //creating array with just drink names
             string[] drinkNamesorig = new string[drinks.Length-1];
 
-            for (int i = 0; i < drinks.Length-2; i++)
+            for (int i = 0; i < drinks.Length-1; i++)
             {
                 string temp = drinks[i];
                 temp = temp.Remove(0, 13);
@@ -131,6 +131,11 @@ namespace TakeFlight_ASP.NET_
                 if (ind != -1)
                 {
                     tempArray[0] = tempArray[0].Insert(ind, "\'");
+                }
+
+                if (tempArray[0].Equals("Owen''s Grandmother's Revenge"))
+                {
+                    tempArray[0] = "Owen''s Grandmother''s Revenge";
                 }
 
                 drinkNamesorig[i] = tempArray[0];
