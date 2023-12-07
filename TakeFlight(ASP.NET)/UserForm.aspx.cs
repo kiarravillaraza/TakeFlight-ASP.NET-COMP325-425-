@@ -70,7 +70,6 @@ namespace TakeFlight_ASP.NET_
                     connection.Open();
 
                     String sql = "insert into \"user\"(userID, name, pass, email, DOB)\r\nvalues\r\n(" + id + ", '" + username + "', '" + pass + "', '" + email + "', '" + dob + "')";
-                    MessageBox.Show(sql);
 
                     SqlCommand command = new SqlCommand(sql, connection);
 

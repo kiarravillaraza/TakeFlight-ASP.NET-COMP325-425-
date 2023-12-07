@@ -170,8 +170,6 @@ namespace TakeFlight_ASP.NET_
 
                 string sql = "UPDATE flights SET drinkNames = '" + drinkNamesToEnter + "' WHERE flightID = " + id + ";";
 
-                System.Windows.Forms.MessageBox.Show(sql);
-
                 using (System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(builder.ConnectionString))
                 {
 
