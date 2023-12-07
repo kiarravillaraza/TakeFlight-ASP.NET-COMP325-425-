@@ -75,6 +75,7 @@
     <Content Include="drinks.png" />
     <Content Include="DrinksStyle.css" />
     <Content Include="flights.png" />
+    <Content Include="FlightsPage.aspx" />
     <Content Include="FlightStyle.css" />
     <Content Include="FlightForm.aspx" />
     <Content Include="gin.png" />
@@ -90,6 +91,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="FlightsPage.aspx.cs">
+      <DependentUpon>FlightsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FlightsPage.aspx.designer.cs">
+      <DependentUpon>FlightsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RequestResponse.cs" />
     <Compile Include="SqlConnection.cs" />
     <Compile Include="FlightForm.aspx.cs">
